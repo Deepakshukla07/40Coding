@@ -151,7 +151,45 @@ public class Day3 {
     // mergeSort
 
     public void mergeSort(int [] arr){
+        int l=0;
+        int r=arr.length-1;
+        devideArray(arr,l,r);
+        System.out.println(Arrays.toString(arr));
+    }
+    public  void devideArray(int [] arr, int l,int r){
+        if(l>=r) return;
+        int mid=l+(r-l)/2;
+        devideArray(arr,l,mid);
+        devideArray(arr,mid+1,r);
+        mergeTwoArray(arr,l,mid,r);
+    }
 
+    public  void mergeTwoArray(int []arr,int l,int mid,int r){
+        int resultArray []= new int[r-l+1];
+        int i=l;
+        int j=mid+1;
+        int k=0;
+
+        while(i<=mid && j<=r){
+            if(arr[i]<=arr[j]){
+                resultArray[k++]=arr[i++];
+            }else{
+                resultArray[k++]=arr[j++];
+            }
+        }
+
+        while(i<=mid){
+            resultArray[k++]=arr[i++];
+        }
+        while(j<=r){
+            resultArray[k++]=arr[j++];
+        }
+        System.out.println("printing mergedArray="+ Arrays.toString(resultArray));
+
+
+        for(int y=0,z=l;y<resultArray.length; y++,z++){
+            arr[z]= resultArray[y];
+        }
     }
 
     // quick sort

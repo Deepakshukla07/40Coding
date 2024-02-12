@@ -11,7 +11,8 @@ public class Main3 {
      //   day3.intersection(a,b);
        // day3.secondAndThirdLargest(a);
         //System.out.println(day3.anagram("listen", "silent"));
-        day3.selectionSort(a);
+      //  day3.selectionSort(a);
+        day3.mergeSort(a);
 
 
     }
